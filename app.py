@@ -7,7 +7,7 @@ import base64
 class InferlessPythonModel:
     def initialize(self):
         self.pipe = StableDiffusionPipeline.from_pretrained(
-            "runwayml/stable-diffusion-v1-5",
+            "runwayml/stable-diffusion-v1",
             use_safetensors=True,
             torch_dtype=torch.float16,
             device_map='auto'
