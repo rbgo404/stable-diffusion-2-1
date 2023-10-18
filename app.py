@@ -21,7 +21,7 @@ class InferlessPythonModel:
         buff = BytesIO()
         image.save(buff, format="JPEG")
         img_str = base64.b64encode(buff.getvalue()).decode()
-        return { "generated_image_base64" :  img_str  }
-
+        return { "label_1" : 0.398 , "label_2" : 0.563, "label_3" : 0.434 }
+        
     def finalize(self):
         self.pipe = None
