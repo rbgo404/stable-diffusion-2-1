@@ -6,7 +6,7 @@ import base64
 
 class InferlessPythonModel:
     def initialize(self):
-        print("New Changes are comming on 4 Dec")
+        print("New Changes are comming")
         self.pipe = StableDiffusionPipeline.from_pretrained(
             "stabilityai/stable-diffusion-2-1",
             use_safetensors=True,
