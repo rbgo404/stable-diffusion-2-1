@@ -7,16 +7,8 @@ import os
 
 class InferlessPythonModel:
     def initialize(self):
-        print("New Changes are comming on 5 dec")
-        __location__ = os.path.real path(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-        __parent_location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "..") )
-        snapshot_download(
-            "stabilityai/stable-diffusion-2-1",
-            local_dir=__parent_location__
-        )
-        
         self.pipe = StableDiffusionPipeline.from_pretrained(
-            __parent_location__,
+            "stability/stable-diffusion-2-1",
             use_safetensors=True,
             torch_dtype=torch.float16,
             device_map='auto'
