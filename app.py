@@ -7,7 +7,6 @@ import os
 
 class InferlessPythonModel:
     def initialize(self):
-        print("Hello World 8")
         self.pipe = StableDiffusionPipeline.from_pretrained(
             "stabilityai/stable-diffusion-2-1",
             use_safetensors=True,
@@ -15,10 +14,9 @@ class InferlessPythonModel:
             device_map='auto'
         )
 
-
     def infer(self, inputs):
         prompt = inputs["prompt"]
-        image = self.pipe(prompt).images[0]
+        image = self.pipe(prompt,num_inference_steps=10).images[0]
         buff = BytesIO()
         image.save(buff, format="JPEG")
         img_str = base64.b64encode(buff.getvalue()).decode()
