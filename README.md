@@ -18,14 +18,10 @@ Get started by forking the repository. You can do this by clicking on the fork b
 
 This will create a copy of the repository in your own GitHub account, allowing you to make changes and customize it according to your needs.
 
-### Add Your Hugging Face Auth Token
-Go into the `app.py` and replace `<your_token>` with your hugging face api key. Make sure to check the repo is private to protect your hugging face key.
-
-
 ### Create a Custom Runtime in Inferless
 To access the custom runtime window in Inferless, simply navigate to the sidebar and click on the **Create new Runtime** button. A pop-up will appear.
 
-Next, provide a suitable name for your custom runtime and proceed by uploading the **config.yaml** file mentioned above. Finally, ensure you save your changes by clicking on the save button.
+Next, provide a suitable name for your custom runtime and proceed by uploading the **inferless-runtime-config.yaml** file mentioned above. Finally, ensure you save your changes by clicking on the save button.
 
 ### Import the Model in Inferless
 Log in to your inferless account, select the workspace you want the model to be imported into and click the Add Model button.
@@ -35,26 +31,6 @@ Select the PyTorch as framework and choose **Repo(custom code)** as your model s
 After the create model step, while setting the configuration for the model make sure to select the appropriate runtime.
 
 Enter all the required details to Import your model. Refer [this link](https://docs.inferless.com/integrations/github-custom-code) for more information on model import.
-
-The following is a sample Input and Output JSON for this model which you can use while importing this model on Inferless.
-
-### Input
-```json
-{
-  "inputs": [
-    {
-      "data": [
-        "A man driving a car."
-      ],
-      "name": "prompt",
-      "shape": [
-        1
-      ],
-      "datatype": "BYTES"
-    }
-  ]
-}
-```
 
 ---
 ## Curl Command
@@ -67,9 +43,19 @@ curl --location '<your_inference_url>' \
                 "inputs": [
                     {
                     "data": [
-                        "A man driving a car."
+                        "A pikachu fine dining with a view to the Eiffel Tower"
                     ],
                     "name": "prompt",
+                    "shape": [
+                        1
+                    ],
+                    "datatype": "BYTES"
+                    },
+                    {
+                    "data": [
+                        "low quality"
+                    ],
+                    "name": "negative_prompt",
                     "shape": [
                         1
                     ],

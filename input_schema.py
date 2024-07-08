@@ -3,6 +3,12 @@ INPUT_SCHEMA = {
         'datatype': 'STRING',
         'required': True,
         'shape': [1],
-        'example': ["There is a fine house in the forest"]
+        'example': ["A pikachu fine dining with a view to the Eiffel Tower"]
+    },
+    "negative_prompt": {
+        'datatype': 'STRING',
+        'required': True,
+        'shape': [1],
+        'example': ["low quality"]
     }
 }

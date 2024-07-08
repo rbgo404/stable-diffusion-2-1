@@ -2,7 +2,6 @@ from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
 import torch
 from io import BytesIO
 import base64
-import os
 
 class InferlessPythonModel:
     def initialize(self):
@@ -11,7 +10,8 @@ class InferlessPythonModel:
         
     def infer(self, inputs):
         prompt = inputs["prompt"]
-        image = self.pipe(prompt,negative_prompt="low quality",num_inference_steps=9).images[0]
+        negative_prompt = inputs["negative_prompt"]
+        image = self.pipe(prompt,negative_prompt=negative_prompt,num_inference_steps=9).images[0]
         buff = BytesIO()
         image.save(buff, format="JPEG")
         img_str = base64.b64encode(buff.getvalue()).decode()
